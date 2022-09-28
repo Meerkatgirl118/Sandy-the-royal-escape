@@ -6,19 +6,22 @@ using UnityEngine.SceneManagement;
 public class PlayerGameover : MonoBehaviour
 {
     PlayerStats playerStats;
+    PlayerMovement playerMovement;
+    [SerializeField] GameObject gameOverRed;
 
     int currentScene;
 
     void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     void Update()
     {
         if (playerStats.playerCurrentHealth <= 0)
         {
-            GameOver();
+            StartCoroutine(GameOver());
         }
     }
 
@@ -26,12 +29,15 @@ public class PlayerGameover : MonoBehaviour
     {
         if (other.gameObject.tag == "BelowGround")
         {
-            GameOver();
+            StartCoroutine(GameOver());
         }
     }
 
-    void GameOver()
+    IEnumerator GameOver()
     {
+        playerMovement.movementEnabled = false;
+        gameOverRed.SetActive(true);
+        yield return new WaitForSeconds(5f);
         currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentScene);
     }

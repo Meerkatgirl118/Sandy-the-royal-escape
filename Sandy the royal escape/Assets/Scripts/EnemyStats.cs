@@ -6,20 +6,20 @@ public class EnemyStats : MonoBehaviour
 {
     // Level 1
 
-    public int cleaningRatAttack = 5;
-    public int cleaningRatHealth = 50;
+    public int cleaningRatAttack = 10;
+    public int cleaningRatHealth = 30;
 
-    public int cookingRatAttack;
-    public int cookingRatHealth;
+    public int cookingRatAttack = 15;
+    public int cookingRatHealth = 40;
 
-    public int armyRatAttack;
-    public int armyRatHealth;
+    public int armyRatAttack = 20;
+    public int armyRatHealth = 50;
 
-    public int securityRatAttack;
-    public int securityRatHealth;
+    public int securityRatAttack = 30;
+    public int securityRatHealth = 60;
 
-    public int securityBlindMiceAttack;
-    public int securityBlindMiceHealth;
+    public int securityBlindMiceAttack = 50;
+    public int securityBlindMiceHealth = 100;
 
     // Level 2
 

@@ -10,6 +10,7 @@ public class EnemyBehaviour : MonoBehaviour
     OverworldUI overworldUI;
 
     [SerializeField] string enemyType = "";
+    public int myHealth = 20000;
 
     void Start()
     {
@@ -17,6 +18,8 @@ public class EnemyBehaviour : MonoBehaviour
         enemyStats = FindObjectOfType<EnemyStats>();
         playerMovement = FindObjectOfType<PlayerMovement>();
         overworldUI = FindObjectOfType<OverworldUI>();
+        if (enemyType == "cleaningRat") { myHealth = enemyStats.cleaningRatHealth; }
+        if (enemyType == "cookingRat") { myHealth = enemyStats.cookingRatHealth; }
     }
 
     void Update()
@@ -43,7 +46,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     void EnemyDefeatTrigger()
     {
-        if (enemyType == "cleaningRat" && enemyStats.cleaningRatHealth <= 0) { print("enemy defeated"); EnemyDefeat(); }
+        if (enemyType == "cleaningRat" && myHealth <= 0) { print("enemy defeated"); EnemyDefeat(); }
+        if (enemyType == "cookingRat" && myHealth <= 0) { print("enemy defeated"); EnemyDefeat(); }
     }
 
     void EnemyDefeat()

@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && Input.GetMouseButtonDown(0))
         {
             overworldUI.DisplayAttackUI();
-            enemyStats.cleaningRatHealth -= 10;
+            collision.gameObject.GetComponent<EnemyBehaviour>().myHealth -= 10;
         }
     }
     void OnCollisionExit(Collision collision)
