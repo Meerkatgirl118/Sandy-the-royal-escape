@@ -6,18 +6,28 @@ public class PlayerAttack : MonoBehaviour
 {
     PlayerStats playerStats;
     EnemyStats enemyStats;
+    OverworldUI overworldUI;
 
     void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
         enemyStats = FindObjectOfType<EnemyStats>();
+        overworldUI = FindObjectOfType<OverworldUI>();
     }
 
     void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy" && Input.GetMouseButtonDown(0))
         {
+            overworldUI.DisplayAttackUI();
             enemyStats.cleaningRatHealth -= 10;
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            overworldUI.HideDisplayAttackUI();
         }
     }
 }
