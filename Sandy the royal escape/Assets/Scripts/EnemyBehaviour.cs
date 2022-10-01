@@ -39,7 +39,8 @@ public class EnemyBehaviour : MonoBehaviour
     void EnemyAttack()
     {
         playerMovement.movementEnabled = false;
-        playerStats.playerCurrentHealth -= 10;
+        if (enemyType == "cleaningRat") { playerStats.playerCurrentHealth -= enemyStats.cleaningRatAttack; }
+        if (enemyType == "cookingRat") { playerStats.playerCurrentHealth -= enemyStats.cookingRatAttack; }
         Wait();
         playerMovement.movementEnabled = true;
     }

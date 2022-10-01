@@ -21,6 +21,7 @@ public class PlayerGameover : MonoBehaviour
     {
         if (playerStats.playerCurrentHealth <= 0)
         {
+            playerStats.playerCurrentHealth = 0;
             StartCoroutine(GameOver());
         }
     }

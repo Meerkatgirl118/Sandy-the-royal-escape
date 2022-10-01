@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         move = this.transform.TransformDirection(move);
         if (move != new Vector3(0, 0, 0) && movementEnabled == true)
         {
-            if (Input.GetKey("left shift"))
+            if (Input.GetAxis("Fire3") == 1)
             {
                 characterController.SimpleMove(move * Time.deltaTime * runSpeed);
             }
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Jump()
     {
-        if (characterController.isGrounded && Input.GetButton("Jump"))
+        if (characterController.isGrounded && Input.GetAxis("Jump") == 1 && movementEnabled == true)
         {
             movementDirection.y = jumpHeight;
         }

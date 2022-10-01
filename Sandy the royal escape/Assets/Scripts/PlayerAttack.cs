@@ -17,9 +17,10 @@ public class PlayerAttack : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy" && Input.GetMouseButtonDown(0))
+        if (collision.gameObject.tag == "Enemy" && Input.GetAxis("Fire1") == 1)
         {
-            overworldUI.DisplayAttackUI();
+            overworldUI.DisplayAttackUI(collision.gameObject);
+            overworldUI.EnemyHealthUI(collision.gameObject.GetComponent<EnemyBehaviour>().myHealth, collision.gameObject);
             collision.gameObject.GetComponent<EnemyBehaviour>().myHealth -= 10;
         }
     }

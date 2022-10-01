@@ -8,6 +8,7 @@ public class OverworldUI : MonoBehaviour
     [SerializeField] GameObject overworldUI;
     [SerializeField] TMP_Text playerHealthUI;
     [SerializeField] TMP_Text attackUI;
+    [SerializeField] TMP_Text enemyHealthUI;
     [SerializeField] GameObject heart1;
     [SerializeField] GameObject heart2;
     [SerializeField] GameObject heart3;
@@ -28,7 +29,7 @@ public class OverworldUI : MonoBehaviour
         HeartUI();
     }
 
-    public void DisplayAttackUI()
+    public void DisplayAttackUI(GameObject enemy)
     {
         attackUI.gameObject.SetActive(true);
     }
@@ -36,6 +37,11 @@ public class OverworldUI : MonoBehaviour
     {
         attackUI.gameObject.SetActive(false);
     }
+    public void EnemyHealthUI(int enemyCurrentHealth, GameObject enemy)
+    {
+        enemyHealthUI.text = "HP: " + enemyCurrentHealth;
+    }
+
     void HeartUI()
     {
         if (playerStats.playerCurrentHealth <= 0) { heart3.SetActive(false); }
@@ -50,4 +56,5 @@ public class OverworldUI : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
     }
+
 }
