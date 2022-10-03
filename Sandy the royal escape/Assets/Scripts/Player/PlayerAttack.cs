@@ -8,6 +8,9 @@ public class PlayerAttack : MonoBehaviour
     EnemyStats enemyStats;
     OverworldUI overworldUI;
 
+    public bool attackCooldownActive = false;
+    public float attackCooldownTime = 2f;
+
     void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
@@ -19,9 +22,14 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && Input.GetAxis("Fire1") == 1)
         {
+            if (!attackCooldownActive)
+            {
+                overworldUI.EnemyHealthUI(collision.gameObject.GetComponent<EnemyBehaviour>().myHealth, collision.gameObject);
+                collision.gameObject.GetComponent<EnemyBehaviour>().myHealth -= 10;
+            }
             overworldUI.DisplayAttackUI(collision.gameObject);
-            overworldUI.EnemyHealthUI(collision.gameObject.GetComponent<EnemyBehaviour>().myHealth, collision.gameObject);
-            collision.gameObject.GetComponent<EnemyBehaviour>().myHealth -= 10;
+            attackCooldownActive = true;
+            StartCoroutine(AttackCooldown());
         }
     }
     void OnCollisionExit(Collision collision)
@@ -30,5 +38,11 @@ public class PlayerAttack : MonoBehaviour
         {
             overworldUI.HideDisplayAttackUI();
         }
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(attackCooldownTime);
+        attackCooldownActive = false;
     }
 }

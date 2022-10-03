@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &424596185902381721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 424596185902381722}
+  - component: {fileID: 7361637166125226656}
+  - component: {fileID: 8966780687844345706}
+  m_Layer: 0
+  m_Name: GlassSlipper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &424596185902381722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424596185902381721}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 38.05, y: 14.945292, z: -22.31}
+  m_LocalScale: {x: 0.70831996, y: 0.70831996, z: 0.70831996}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6721866654339980412}
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7361637166125226656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424596185902381721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd6fa260e7f12b42af934b0c1ec88aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &8966780687844345706
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424596185902381721}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &6539903300199201687
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 424596185902381722}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 891.08
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 891.08
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 891.08
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.014944
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.23039
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.000026928
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+      propertyPath: m_Name
+      value: Glass slipper
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+--- !u!4 &6721866654339980412 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1d701316ce0990648beac990205b1a24, type: 3}
+  m_PrefabInstance: {fileID: 6539903300199201687}
+  m_PrefabAsset: {fileID: 0}

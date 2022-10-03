@@ -47,8 +47,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     void EnemyDefeatTrigger()
     {
-        if (enemyType == "cleaningRat" && myHealth <= 0) { print("enemy defeated"); EnemyDefeat(); }
-        if (enemyType == "cookingRat" && myHealth <= 0) { print("enemy defeated"); EnemyDefeat(); }
+        if (enemyType == "cleaningRat" && myHealth <= 0) { Wait(); print("enemy defeated"); EnemyDefeat(); }
+        if (enemyType == "cookingRat" && myHealth <= 0) { Wait(); print("enemy defeated"); EnemyDefeat(); }
     }
 
     void EnemyDefeat()
