@@ -56,16 +56,18 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\HealingHeart.cs" />
-    <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
-    <Compile Include="Assets\Scripts\EnemyStats.cs" />
-    <Compile Include="Assets\Scripts\OpenCloseMenu.cs" />
-    <Compile Include="Assets\Scripts\PlayerStats.cs" />
-    <Compile Include="Assets\Scripts\PlayerGameover.cs" />
-    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\PlayerAttack.cs" />
-    <Compile Include="Assets\Scripts\OverworldUI.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Items\HealingHeart.cs" />
+    <Compile Include="Assets\Scripts\Enemy\EnemyBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Database\EnemyStats.cs" />
+    <Compile Include="Assets\Scripts\UI\OpenCloseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Database\ItemStorage.cs" />
+    <Compile Include="Assets\Scripts\Database\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerGameover.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Items\GlassSlipperCollectable.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\UI\OverworldUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
