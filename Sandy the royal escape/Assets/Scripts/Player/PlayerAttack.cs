@@ -22,9 +22,9 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && Input.GetAxis("Fire1") == 1)
         {
+            overworldUI.EnemyHealthUI(collision.gameObject.GetComponent<EnemyBehaviour>().myHealth, collision.gameObject);
             if (!attackCooldownActive)
             {
-                overworldUI.EnemyHealthUI(collision.gameObject.GetComponent<EnemyBehaviour>().myHealth, collision.gameObject);
                 collision.gameObject.GetComponent<EnemyBehaviour>().myHealth -= 10;
             }
             overworldUI.DisplayAttackUI(collision.gameObject);

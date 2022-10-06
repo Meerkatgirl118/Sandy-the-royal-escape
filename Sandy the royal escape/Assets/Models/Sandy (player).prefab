@@ -158,7 +158,7 @@ Transform:
   - {fileID: 8218079151976559281}
   - {fileID: 4547760876074726712}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4547760876049759853
 MeshFilter:
@@ -222,7 +222,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afc6fc0db7972b4ab4895f170c9691b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sandyModel: {fileID: 8739142572295546891}
   walkSpeed: 120
   runSpeed: 150
   gravity: 9.8
@@ -270,7 +271,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.48
+  m_Radius: 0.4
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -380,7 +381,7 @@ BoxCollider:
   m_GameObject: {fileID: 4547760876074726713}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -446,5 +447,10 @@ PrefabInstance:
 --- !u!4 &8218079151976559281 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7225498489405103869, guid: 1726ce098a7c32042978614619e6be1b, type: 3}
+  m_PrefabInstance: {fileID: 1606197280099527756}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8739142572295546891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8002316221597647943, guid: 1726ce098a7c32042978614619e6be1b, type: 3}
   m_PrefabInstance: {fileID: 1606197280099527756}
   m_PrefabAsset: {fileID: 0}

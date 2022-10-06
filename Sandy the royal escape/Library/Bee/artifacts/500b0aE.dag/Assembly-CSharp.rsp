@@ -347,6 +347,7 @@
 "Assets/Scripts/Database/ItemStorage.cs"
 "Assets/Scripts/Database/PlayerStats.cs"
 "Assets/Scripts/Enemy/EnemyBehaviour.cs"
+"Assets/Scripts/Enemy/EnemyNavigation.cs"
 "Assets/Scripts/Items/GlassSlipperCollectable.cs"
 "Assets/Scripts/Items/HealingHeart.cs"
 "Assets/Scripts/Player/PlayerAttack.cs"

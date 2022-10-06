@@ -29,11 +29,16 @@ public class OverworldUI : MonoBehaviour
 
     void Update()
     {
-        playerHealthUI.text = "Health: " + playerStats.playerCurrentHealth;
-        glassSlipperAmountUI.text = "X" + itemStorage.glassSlipperAmount;
-        HeartUI();
+        UIHealthDisplay();
+        HeartUI(playerStats.playerCurrentHealth);
     }
 
+    void UIHealthDisplay()
+    {
+        playerHealthUI.text = "Health: " + playerStats.playerCurrentHealth;
+        glassSlipperAmountUI.text = "X" + itemStorage.glassSlipperAmount;
+
+    }
     public void DisplayAttackUI(GameObject enemy)
     {
         attackUI.gameObject.SetActive(true);
@@ -47,15 +52,32 @@ public class OverworldUI : MonoBehaviour
         enemyHealthUI.text = "HP: " + enemyCurrentHealth;
     }
 
-    void HeartUI()
+    void HeartUI(int playerHealth)
     {
-        if (playerStats.playerCurrentHealth <= 0) { heart3.SetActive(false); }
-        else if (playerStats.playerCurrentHealth <= 40) { heart2.SetActive(false); }
-        else if (playerStats.playerCurrentHealth <= 80) { heart1.SetActive(false); }
-
-        if (playerStats.playerCurrentHealth > 80) { heart1.SetActive(true); }
-        else if (playerStats.playerCurrentHealth > 40) { heart2.SetActive(true); }
-        else if (playerStats.playerCurrentHealth > 0) { heart3.SetActive(true); }
+        switch (playerHealth)
+        {
+            case <= 0:
+                heart3.SetActive(false);
+                break;
+            case <= 40:
+                heart2.SetActive(false);
+                break;
+            case <= 80:
+                heart1.SetActive(false);
+                break;
+        }
+        switch (playerHealth)
+        {
+            case > 80:
+                heart1.SetActive(true);
+                break;
+            case > 40:
+                heart2.SetActive(true);
+                break;
+            case > 0:
+                heart3.SetActive(true);
+                break;
+        }
     }
     IEnumerator Wait()
     {

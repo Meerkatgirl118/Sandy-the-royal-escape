@@ -11,6 +11,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     [SerializeField] string enemyType = "";
     public int myHealth = 20000;
+    public float myAttackCooldownAmount = 5f;
+    [SerializeField] bool myAttackCooldownActive = false;
 
     void Start()
     {
@@ -28,10 +30,18 @@ public class EnemyBehaviour : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision general");
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !myAttackCooldownActive)
         {
-            Debug.Log("Collided with Sandy");
+            StartCoroutine(AttackCooldown());
+            EnemyAttack();
+        }
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player" && !myAttackCooldownActive)
+        {
+            StartCoroutine(AttackCooldown());
             EnemyAttack();
         }
     }
@@ -40,15 +50,14 @@ public class EnemyBehaviour : MonoBehaviour
     {
         playerMovement.movementEnabled = false;
         if (enemyType == "cleaningRat") { playerStats.playerCurrentHealth -= enemyStats.cleaningRatAttack; }
-        if (enemyType == "cookingRat") { playerStats.playerCurrentHealth -= enemyStats.cookingRatAttack; }
+        else if (enemyType == "cookingRat") { playerStats.playerCurrentHealth -= enemyStats.cookingRatAttack; }
         Wait();
         playerMovement.movementEnabled = true;
     }
 
     void EnemyDefeatTrigger()
     {
-        if (enemyType == "cleaningRat" && myHealth <= 0) { Wait(); print("enemy defeated"); EnemyDefeat(); }
-        if (enemyType == "cookingRat" && myHealth <= 0) { Wait(); print("enemy defeated"); EnemyDefeat(); }
+        if (myHealth <= 0) { Wait(); print("enemy defeated"); EnemyDefeat(); }
     }
 
     void EnemyDefeat()
@@ -60,5 +69,12 @@ public class EnemyBehaviour : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(1f);
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        myAttackCooldownActive = true;
+        yield return new WaitForSeconds(myAttackCooldownAmount);
+        myAttackCooldownActive = false;
     }
 }

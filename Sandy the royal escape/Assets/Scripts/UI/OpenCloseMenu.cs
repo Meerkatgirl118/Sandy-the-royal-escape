@@ -25,7 +25,7 @@ public class OpenCloseMenu : MonoBehaviour
             menuOpenCooldownActive = true;
             MenuOpen();
         }
-        if (Input.GetAxis("Cancel") == 1 && isMenuOpen && !menuOpenCooldownActive)
+        else if (Input.GetAxis("Cancel") == 1 && isMenuOpen && !menuOpenCooldownActive)
         {
             menuOpenCooldownActive = true;
             MenuClose();

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     CharacterController characterController;
+    [SerializeField] GameObject sandyModel;
 
     [SerializeField] float walkSpeed = 80f;
     [SerializeField] float runSpeed = 100f;
@@ -32,11 +33,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Rotation()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             transform.Rotate(-Vector3.up * RotateSpeed * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             transform.Rotate(Vector3.up * RotateSpeed * Time.deltaTime);
         }
