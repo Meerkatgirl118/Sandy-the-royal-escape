@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     EnemyStats enemyStats;
     PlayerMovement playerMovement;
     OverworldUI overworldUI;
+    OpenCloseMenu openCloseMenu;
 
     [SerializeField] string enemyType = "";
     public int myHealth = 20000;
@@ -20,6 +21,7 @@ public class EnemyBehaviour : MonoBehaviour
         enemyStats = FindObjectOfType<EnemyStats>();
         playerMovement = FindObjectOfType<PlayerMovement>();
         overworldUI = FindObjectOfType<OverworldUI>();
+        openCloseMenu = FindObjectOfType<OpenCloseMenu>();
         if (enemyType == "cleaningRat") { myHealth = enemyStats.cleaningRatHealth; }
         if (enemyType == "cookingRat") { myHealth = enemyStats.cookingRatHealth; }
     }
@@ -30,7 +32,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" && !myAttackCooldownActive)
+        if (collision.gameObject.tag == "Player" && !myAttackCooldownActive && !openCloseMenu.isMenuOpen)
         {
             StartCoroutine(AttackCooldown());
             EnemyAttack();
@@ -39,7 +41,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" && !myAttackCooldownActive)
+        if (collision.gameObject.tag == "Player" && !myAttackCooldownActive && !openCloseMenu.isMenuOpen)
         {
             StartCoroutine(AttackCooldown());
             EnemyAttack();

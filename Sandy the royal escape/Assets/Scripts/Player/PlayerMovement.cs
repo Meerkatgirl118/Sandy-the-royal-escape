@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    PlayerRotate playerRotate;
+
     CharacterController characterController;
     [SerializeField] GameObject sandyModel;
 
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        playerRotate = FindObjectOfType<PlayerRotate>();
     }
 
 
@@ -31,15 +34,17 @@ public class PlayerMovement : MonoBehaviour
         Jump();
     }
 
-    void Rotation()
+    void Rotation() 
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
-            transform.Rotate(-Vector3.up * RotateSpeed * Time.deltaTime);
+            //playerRotate.RotateSandyLeft();
+            //transform.Rotate(-Vector3.up * RotateSpeed * Time.deltaTime);
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
-            transform.Rotate(Vector3.up * RotateSpeed * Time.deltaTime);
+            //playerRotate.RotateSandyRight();
+            //transform.Rotate(Vector3.up * RotateSpeed * Time.deltaTime);
         }
     }
     void WalkAndRun()

@@ -10,6 +10,7 @@ public class OpenCloseMenu : MonoBehaviour
 
     public bool isMenuOpen = false;
     public bool canOpenMenu = true;
+    public bool subMenuOpen = false;
     public bool menuOpenCooldownActive = false;
     public float menuOpenCooldownTime = 0.5f;
 
@@ -20,12 +21,12 @@ public class OpenCloseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxis("Cancel") == 1 && !isMenuOpen && canOpenMenu && !menuOpenCooldownActive)
+        if (Input.GetAxis("Cancel") == 1 && !isMenuOpen && canOpenMenu && !menuOpenCooldownActive && !subMenuOpen)
         {
             menuOpenCooldownActive = true;
             MenuOpen();
         }
-        else if (Input.GetAxis("Cancel") == 1 && isMenuOpen && !menuOpenCooldownActive)
+        else if (Input.GetAxis("Cancel") == 1 && isMenuOpen && !menuOpenCooldownActive && !subMenuOpen)
         {
             menuOpenCooldownActive = true;
             MenuClose();

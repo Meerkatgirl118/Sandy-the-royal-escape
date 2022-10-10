@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
     PlayerStats playerStats;
     EnemyStats enemyStats;
     OverworldUI overworldUI;
+    OpenCloseMenu openCloseMenu;
 
     public bool attackCooldownActive = false;
     public float attackCooldownTime = 2f;
@@ -16,11 +17,12 @@ public class PlayerAttack : MonoBehaviour
         playerStats = FindObjectOfType<PlayerStats>();
         enemyStats = FindObjectOfType<EnemyStats>();
         overworldUI = FindObjectOfType<OverworldUI>();
+        openCloseMenu = FindObjectOfType<OpenCloseMenu>();
     }
 
     void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy" && Input.GetAxis("Fire1") == 1)
+        if (collision.gameObject.tag == "Enemy" && Input.GetAxis("Fire1") == 1 && !openCloseMenu.isMenuOpen)
         {
             overworldUI.EnemyHealthUI(collision.gameObject.GetComponent<EnemyBehaviour>().myHealth, collision.gameObject);
             if (!attackCooldownActive)

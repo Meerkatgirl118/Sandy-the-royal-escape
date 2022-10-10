@@ -353,6 +353,7 @@
 "Assets/Scripts/Player/PlayerAttack.cs"
 "Assets/Scripts/Player/PlayerGameover.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
+"Assets/Scripts/Player/PlayerRotate.cs"
 "Assets/Scripts/UI/MainMenu.cs"
 "Assets/Scripts/UI/OpenCloseMenu.cs"
 "Assets/Scripts/UI/OverworldUI.cs"

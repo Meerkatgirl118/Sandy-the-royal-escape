@@ -61,12 +61,13 @@
     <Compile Include="Assets\Scripts\Database\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\UI\OpenCloseMenu.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Database\ItemStorage.cs" />
     <Compile Include="Assets\Scripts\Database\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerGameover.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Items\GlassSlipperCollectable.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerRotate.cs" />
     <Compile Include="Assets\Scripts\UI\OverworldUI.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyNavigation.cs" />
   </ItemGroup>
