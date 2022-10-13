@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     PlayerRotate playerRotate;
 
     CharacterController characterController;
+    Animator animator;
     [SerializeField] GameObject sandyModel;
 
     [SerializeField] float walkSpeed = 80f;
@@ -22,30 +23,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        characterController = GetComponentInChildren<CharacterController>();
         playerRotate = FindObjectOfType<PlayerRotate>();
+        animator = FindObjectOfType<Animator>();
     }
 
 
     void FixedUpdate()
     {
-        Rotation();
         WalkAndRun();
         Jump();
-    }
-
-    void Rotation() 
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-        {
-            //playerRotate.RotateSandyLeft();
-            //transform.Rotate(-Vector3.up * RotateSpeed * Time.deltaTime);
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
-        {
-            //playerRotate.RotateSandyRight();
-            //transform.Rotate(Vector3.up * RotateSpeed * Time.deltaTime);
-        }
+        CheckIfGrounded();
     }
     void WalkAndRun()
     {
@@ -54,20 +42,38 @@ public class PlayerMovement : MonoBehaviour
         move = this.transform.TransformDirection(move);
         if (move != new Vector3(0, 0, 0) && movementEnabled == true)
         {
-            if (Input.GetAxis("Fire3") == 1)
+            if (Input.GetAxis("Fire3") == 1) // Fire3 is left shift on keyboard
             {
+                animator.SetBool("isRunning", true);
                 characterController.SimpleMove(move * Time.deltaTime * runSpeed);
             }
             else
             {
+                animator.SetBool("isWalking", true);
+                animator.SetBool("isRunning", false);
                 characterController.SimpleMove(move * Time.deltaTime * walkSpeed);
             }
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isJumping", false);
+        }
+    }
+
+    void CheckIfGrounded()
+    {
+        if (characterController.isGrounded)
+        {
+            animator.SetBool("isJumping", false);
         }
     }
     void Jump()
     {
         if (characterController.isGrounded && Input.GetAxis("Jump") == 1 && movementEnabled == true)
         {
+            animator.SetBool("isJumping", true);
             movementDirection.y = jumpHeight;
         }
         movementDirection.y -= gravity * Time.deltaTime;

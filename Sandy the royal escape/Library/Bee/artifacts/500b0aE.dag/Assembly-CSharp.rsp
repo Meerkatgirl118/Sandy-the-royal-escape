@@ -357,6 +357,7 @@
 "Assets/Scripts/UI/MainMenu.cs"
 "Assets/Scripts/UI/OpenCloseMenu.cs"
 "Assets/Scripts/UI/OverworldUI.cs"
+"Assets/Scripts/World/DoorOpen.cs"
 -langversion:9.0
 
 /deterministic

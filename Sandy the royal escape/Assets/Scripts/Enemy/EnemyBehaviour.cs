@@ -10,32 +10,52 @@ public class EnemyBehaviour : MonoBehaviour
     OverworldUI overworldUI;
     OpenCloseMenu openCloseMenu;
 
-    [SerializeField] string enemyType = "";
+    [SerializeField] string enemyTypeString = "";
+
     public int myHealth = 20000;
+    public int myAttack = 40;
     public float myAttackCooldownAmount = 5f;
     [SerializeField] bool myAttackCooldownActive = false;
 
     void Start()
     {
-        playerStats = FindObjectOfType<PlayerStats>();
-        enemyStats = FindObjectOfType<EnemyStats>();
-        playerMovement = FindObjectOfType<PlayerMovement>();
-        overworldUI = FindObjectOfType<OverworldUI>();
-        openCloseMenu = FindObjectOfType<OpenCloseMenu>();
-        if (enemyType == "cleaningRat") { myHealth = enemyStats.cleaningRatHealth; }
-        if (enemyType == "cookingRat") { myHealth = enemyStats.cookingRatHealth; }
+        FindNeededScripts();
+        DefineEnemyStats();
     }
 
     void Update()
     {
         EnemyDefeatTrigger();
     }
+
+    void FindNeededScripts()
+    {
+        playerStats = FindObjectOfType<PlayerStats>();
+        enemyStats = FindObjectOfType<EnemyStats>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
+        overworldUI = FindObjectOfType<OverworldUI>();
+        openCloseMenu = FindObjectOfType<OpenCloseMenu>();
+    }
+    void DefineEnemyStats()
+    {
+        switch (enemyTypeString)
+        {
+            case "cleaningRat":
+                myHealth = enemyStats.cleaningRatHealth; 
+                myAttack = enemyStats.cleaningRatAttack;
+                break;
+            case "cookingRat":
+                myHealth = enemyStats.cookingRatHealth; 
+                myAttack = enemyStats.cookingRatAttack;
+                break;
+        }
+    }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player" && !myAttackCooldownActive && !openCloseMenu.isMenuOpen)
         {
             StartCoroutine(AttackCooldown());
-            EnemyAttack();
+            EnemyAttack(myAttack);
         }
     }
 
@@ -44,22 +64,24 @@ public class EnemyBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Player" && !myAttackCooldownActive && !openCloseMenu.isMenuOpen)
         {
             StartCoroutine(AttackCooldown());
-            EnemyAttack();
+            EnemyAttack(myAttack);
         }
     }
 
-    void EnemyAttack()
+    void EnemyAttack(int myAttackStat)
     {
         playerMovement.movementEnabled = false;
-        if (enemyType == "cleaningRat") { playerStats.playerCurrentHealth -= enemyStats.cleaningRatAttack; }
-        else if (enemyType == "cookingRat") { playerStats.playerCurrentHealth -= enemyStats.cookingRatAttack; }
-        Wait();
+        playerStats.playerCurrentHealth -= myAttack;
+        StartCoroutine(Wait());
         playerMovement.movementEnabled = true;
     }
 
     void EnemyDefeatTrigger()
     {
-        if (myHealth <= 0) { Wait(); print("enemy defeated"); EnemyDefeat(); }
+        if (myHealth <= 0) 
+        { 
+            Wait(); 
+            EnemyDefeat(); }
     }
 
     void EnemyDefeat()

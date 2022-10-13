@@ -31,6 +31,7 @@ public class PlayerAttack : MonoBehaviour
             }
             overworldUI.DisplayAttackUI(collision.gameObject);
             attackCooldownActive = true;
+            overworldUI.EnemyHealthUI(collision.gameObject.GetComponent<EnemyBehaviour>().myHealth, collision.gameObject);
             StartCoroutine(AttackCooldown());
         }
     }

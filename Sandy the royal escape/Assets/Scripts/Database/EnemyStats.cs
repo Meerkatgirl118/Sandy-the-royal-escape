@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
+    public string[] enemyTypes;
+
     // Level 1
 
     public int cleaningRatAttack = 10;
