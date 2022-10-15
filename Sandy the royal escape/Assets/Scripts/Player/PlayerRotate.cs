@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerRotate : MonoBehaviour
 {
+    PlayerMovement playerMovement;
     Vector3 relativePosition;
     Quaternion targetRotation;
 
@@ -18,10 +19,14 @@ public class PlayerRotate : MonoBehaviour
 
     float rotationTime;
 
+    void Start()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
     void Update()
     {
         PlayerInputRotation();
-        if (isRotating)
+        if (isRotating && playerMovement.movementEnabled == true)
         {
             rotationTime += Time.deltaTime;
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationTime * speed);
@@ -35,22 +40,22 @@ public class PlayerRotate : MonoBehaviour
     void PlayerInputRotation()
     {
         // Right
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) && playerMovement.movementEnabled == true)
         {
             PlayerRotation(targetRight);
         }
         // Left
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) && playerMovement.movementEnabled == true)
         {
             PlayerRotation(targetLeft);
         }
         // Front
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) && playerMovement.movementEnabled == true)
         {
             PlayerRotation(targetFront);
         }
         // Back
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && playerMovement.movementEnabled == true)
         {
             PlayerRotation(targetBack);
         }

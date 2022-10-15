@@ -9,6 +9,7 @@ public class EnemyNavigation : MonoBehaviour
     OpenCloseMenu openCloseMenu;
     NavMeshAgent agent;
 
+    public float enemyAttackRadius = 6f;
     bool touchingPlayer = false;
 
     void Start()
@@ -47,9 +48,18 @@ public class EnemyNavigation : MonoBehaviour
         }
     }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, enemyAttackRadius);
+
+    }
+
     void FixedUpdate()
     {
-        if (!touchingPlayer && !openCloseMenu.isMenuOpen && agent != null)
+        float distanceToPlayer = Vector3.Distance(playerMovement.transform.position, this.transform.position);
+
+        if (distanceToPlayer < enemyAttackRadius && !touchingPlayer && !openCloseMenu.isMenuOpen && agent != null)
         {
             agent.destination = playerMovement.transform.position;
         }
