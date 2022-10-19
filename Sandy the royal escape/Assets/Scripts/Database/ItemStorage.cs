@@ -8,11 +8,33 @@ public class ItemStorage : MonoBehaviour
     public int glassSlipperAmount = 0;
 
     // Weapons
-    public bool knifeOwned; // Weapon 0
-    public bool whipOwned; // Weapon 1
-    public bool swordOwned; // Weapon 2
-    public bool axeOwned; // Weapon 3
+    public bool fistUsable = true; // Weapon 0
+    public bool knifeOwned = false; // Weapon 1
+    public bool whipOwned = false; // Weapon 2
+    public bool swordOwned = false; // Weapon 3
+    public bool axeOwned = false; // Weapon 4
+
+    public int fistStrengthBoost = 0;
+    public int knifeStrengthBoost = 5;
+    public int whipStrengthBoost = 10;
+    public int swordStrengthBoost = 20;
+    public int axeStrengthBoost = 30;
 
     public string[] weapons;
+    public int[] weaponStrength;
     public int weaponInUse;
+
+    void Start()
+    {
+        AssignWeaponStrength();
+
+    }
+    void AssignWeaponStrength()
+    {
+        weaponStrength[0] = fistStrengthBoost;
+        weaponStrength[1] = knifeStrengthBoost;
+        weaponStrength[2] = whipStrengthBoost;
+        weaponStrength[3] = swordStrengthBoost;
+        weaponStrength[4] = axeStrengthBoost;
+    }
 }

@@ -59,7 +59,7 @@ public class EnemyNavigation : MonoBehaviour
     {
         float distanceToPlayer = Vector3.Distance(playerMovement.transform.position, this.transform.position);
 
-        if (distanceToPlayer < enemyAttackRadius && !touchingPlayer && !openCloseMenu.isMenuOpen && agent != null)
+        if (distanceToPlayer < enemyAttackRadius && !touchingPlayer && !openCloseMenu.isMenuOpen && agent != null && agent.enabled == true)
         {
             agent.destination = playerMovement.transform.position;
         }

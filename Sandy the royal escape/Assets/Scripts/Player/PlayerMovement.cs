@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     {
         characterController = GetComponentInChildren<CharacterController>();
         playerRotate = FindObjectOfType<PlayerRotate>();
-        animator = FindObjectOfType<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
 
