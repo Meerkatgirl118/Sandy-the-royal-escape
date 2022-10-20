@@ -8,10 +8,10 @@ public class EnemyStats : MonoBehaviour
 
     // Level 1
 
-    public int cleaningRatAttack = 10;
+    public int cleaningRatAttack = 5;
     public int cleaningRatHealth = 30;
 
-    public int cookingRatAttack = 15;
+    public int cookingRatAttack = 10;
     public int cookingRatHealth = 40;
 
     public int armyRatAttack = 20;

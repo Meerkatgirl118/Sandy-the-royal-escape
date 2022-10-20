@@ -161,6 +161,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3407261017736347277}
+  - {fileID: 695946849686104161}
   - {fileID: 5893794901107207874}
   - {fileID: 7086865702450683825}
   - {fileID: 7217096517662840583}
@@ -272,6 +273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldownActive: 0
   attackCooldownTime: 2
+  playerAttack: 0
+  weaponAttackBoost: 0
 --- !u!136 &3407261016285680480
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -625,6 +628,99 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &1018594742564999050
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 3407261016285680492}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.008
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.078
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_Name
+      value: Sandy Walk in place
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+--- !u!1 &208202784924234459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+  m_PrefabInstance: {fileID: 1018594742564999050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1621687441205763922
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208202784924234459}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: db86eba380dff2c4eb0d0a54a53b97a9, type: 3}
+  m_Controller: {fileID: 9100000, guid: 87795e17c3ac45441b8004e3fb09c98b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &695946849686104161 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 197af9ff4d9d75c4dbce7e9b89bfcd21, type: 3}
+  m_PrefabInstance: {fileID: 1018594742564999050}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6215053527341697321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -680,6 +776,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 46083cb37983a934a9c291024281a2a6, type: 3}
       propertyPath: m_Name
       value: C_Sandy_Walking_InPlace
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 46083cb37983a934a9c291024281a2a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
