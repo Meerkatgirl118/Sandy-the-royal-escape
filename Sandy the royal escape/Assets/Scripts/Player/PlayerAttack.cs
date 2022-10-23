@@ -9,11 +9,22 @@ public class PlayerAttack : MonoBehaviour
     OverworldUI overworldUI;
     OpenCloseMenu openCloseMenu;
     ItemStorage itemStorage;
+    Animator animator;
 
     public bool attackCooldownActive = false;
     public float attackCooldownTime = 2f;
     public int playerAttack;
     public int weaponAttackBoost;
+
+
+    Vector3 relativePosition;
+    Quaternion targetRotation;
+    public float speed = 1f;
+    Quaternion currentRotation;
+
+    bool isRotating = false;
+
+    float rotationTime;
 
     void Start()
     {
@@ -22,12 +33,8 @@ public class PlayerAttack : MonoBehaviour
         overworldUI = FindObjectOfType<OverworldUI>();
         openCloseMenu = FindObjectOfType<OpenCloseMenu>();
         itemStorage = FindObjectOfType<ItemStorage>();
+        animator = GetComponentInChildren<Animator>();
         playerAttack = playerStats.playerAttack;
-    }
-
-    void FixedUpdate()
-    {
-        
     }
 
     void CheckPlayerAttack()
@@ -58,7 +65,8 @@ public class PlayerAttack : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && Input.GetAxis("Fire1") == 1 && !openCloseMenu.isMenuOpen)
         {
             CheckPlayerAttack();
-
+            PlayerFaceEnemy(collision.transform);
+            animator.SetBool("isAttacking", true);
             overworldUI.EnemyHealthUI(collision.gameObject.GetComponent<EnemyBehaviour>().myHealth, collision.gameObject);
             if (!attackCooldownActive)
             {
@@ -79,9 +87,20 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    void PlayerFaceEnemy(Transform enemyPosition)
+    {
+        rotationTime += Time.deltaTime;
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationTime * speed);
+        
+        relativePosition = enemyPosition.position - transform.position;
+        targetRotation = Quaternion.LookRotation(relativePosition);
+
+    }
+
     IEnumerator AttackCooldown()
     {
         yield return new WaitForSeconds(attackCooldownTime);
+        animator.SetBool("isAttacking", false);
         attackCooldownActive = false;
     }
 }

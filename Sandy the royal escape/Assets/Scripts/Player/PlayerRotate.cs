@@ -13,7 +13,7 @@ public class PlayerRotate : MonoBehaviour
     public Transform targetFront;
     public Transform targetBack;
 
-    public float speed = 0.01f;
+    public float speed = 0.5f;
 
     bool isRotating = false;
 
