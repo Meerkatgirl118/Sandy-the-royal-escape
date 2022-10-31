@@ -49,7 +49,15 @@ public class OverworldUI : MonoBehaviour
     }
     public void EnemyHealthUI(int enemyCurrentHealth, GameObject enemy)
     {
-        enemyHealthUI.text = "HP: " + enemyCurrentHealth;
+        switch (enemyCurrentHealth)
+        {
+            case > 0:
+                enemyHealthUI.text = "HP: " + enemyCurrentHealth;
+                break;
+            case <= 0:
+                enemyHealthUI.text = "HP: " + 0;
+                break;
+        }
     }
 
     void HeartUI(int playerHealth)

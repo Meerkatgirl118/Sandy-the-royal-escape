@@ -356,6 +356,7 @@
 "Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/Player/PlayerRotate.cs"
 "Assets/Scripts/Player/SwitchWeapon.cs"
+"Assets/Scripts/UI/EquipMenu.cs"
 "Assets/Scripts/UI/MainMenu.cs"
 "Assets/Scripts/UI/OpenCloseMenu.cs"
 "Assets/Scripts/UI/OverworldUI.cs"

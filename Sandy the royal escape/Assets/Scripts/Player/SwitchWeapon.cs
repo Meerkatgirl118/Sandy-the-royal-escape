@@ -6,7 +6,7 @@ public class SwitchWeapon : MonoBehaviour
 {
     ItemStorage itemStorage;
 
-    [SerializeField] int weaponSelected;
+    public int weaponSelected;
     void Start()
     {
         itemStorage = FindObjectOfType<ItemStorage>();

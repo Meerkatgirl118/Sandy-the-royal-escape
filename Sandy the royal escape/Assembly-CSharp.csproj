@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Items\HealingHeart.cs" />
+    <Compile Include="Assets\Scripts\UI\EquipMenu.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Database\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\UI\OpenCloseMenu.cs" />

@@ -145,15 +145,19 @@ public class Shop : MonoBehaviour
             {
                 case 1:
                     itemStorage.knifeOwned = true;
+                    itemStorage.weaponsAvailable.Add("knife");
                     break;
                 case 2:
                     itemStorage.whipOwned = true;
+                    itemStorage.weaponsAvailable.Add("whip");
                     break;
                 case 3:
                     itemStorage.swordOwned = true;
+                    itemStorage.weaponsAvailable.Add("sword");
                     break;
                 case 4:
                     itemStorage.axeOwned = true;
+                    itemStorage.weaponsAvailable.Add("axe");
                     break;
             }
         }

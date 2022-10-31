@@ -13,7 +13,7 @@ public class PlayerRotate : MonoBehaviour
     public Transform targetFront;
     public Transform targetBack;
 
-    public float speed = 0.5f;
+    public float speed = 0.1f;
 
     bool isRotating = false;
 
@@ -55,10 +55,10 @@ public class PlayerRotate : MonoBehaviour
             PlayerRotation(targetFront);
         }
         // Back
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && playerMovement.movementEnabled == true)
-        {
-            PlayerRotation(targetBack);
-        }
+        //if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && playerMovement.movementEnabled == true)
+        //{
+        //    PlayerRotation(targetBack);
+        //}
     }
 
     void PlayerRotation(Transform target)

@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - EnemyBehaviour
     - EnemyNavigation
     - EnemyStats
+    - EquipMenu
     - GlassSlipperCollectable
     - HealingHeart
     - ItemStorage
@@ -127,8 +128,17 @@ ScriptsOnlyBuild:
     fullTypeName: Shop
     methodName: PreviousItem
   - assembly: Assembly-CSharp
+    fullTypeName: EquipMenu
+    methodName: NextButton
+  - assembly: Assembly-CSharp
+    fullTypeName: Shop
+    methodName: Buy
+  - assembly: Assembly-CSharp
     fullTypeName: Shop
     methodName: NextItem
+  - assembly: Assembly-CSharp
+    fullTypeName: EquipMenu
+    methodName: PreviousButton
   sceneClasses:
     Assets/Scenes/Lvl 1.unity:
     - Class: 1
@@ -178,75 +188,77 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1824}
     - Class: 114
+      Script: {instanceID: 1880}
+    - Class: 114
       Script: {instanceID: 1906}
     - Class: 114
-      Script: {instanceID: 1954}
+      Script: {instanceID: 1956}
     - Class: 114
-      Script: {instanceID: 2162}
+      Script: {instanceID: 2164}
     - Class: 114
-      Script: {instanceID: 2238}
+      Script: {instanceID: 2240}
     - Class: 114
-      Script: {instanceID: 2338}
+      Script: {instanceID: 2340}
     - Class: 114
-      Script: {instanceID: 2576}
+      Script: {instanceID: 2578}
     - Class: 114
-      Script: {instanceID: 2580}
+      Script: {instanceID: 2582}
     - Class: 114
-      Script: {instanceID: 2722}
+      Script: {instanceID: 2724}
     - Class: 114
-      Script: {instanceID: 2768}
+      Script: {instanceID: 2770}
     - Class: 114
-      Script: {instanceID: 2868}
+      Script: {instanceID: 2870}
     - Class: 114
-      Script: {instanceID: 2940}
+      Script: {instanceID: 2942}
     - Class: 114
-      Script: {instanceID: 3000}
+      Script: {instanceID: 3002}
     - Class: 114
-      Script: {instanceID: 3030}
+      Script: {instanceID: 3032}
     - Class: 114
-      Script: {instanceID: 3166}
+      Script: {instanceID: 3168}
     - Class: 114
-      Script: {instanceID: 3178}
+      Script: {instanceID: 3180}
     - Class: 114
-      Script: {instanceID: 3246}
+      Script: {instanceID: 3248}
     - Class: 114
-      Script: {instanceID: 3280}
+      Script: {instanceID: 3282}
     - Class: 114
-      Script: {instanceID: 3292}
+      Script: {instanceID: 3294}
     - Class: 114
-      Script: {instanceID: 3354}
+      Script: {instanceID: 3356}
     - Class: 114
-      Script: {instanceID: 3446}
+      Script: {instanceID: 3448}
     - Class: 114
-      Script: {instanceID: 3578}
+      Script: {instanceID: 3580}
     - Class: 114
-      Script: {instanceID: 3600}
+      Script: {instanceID: 3602}
     - Class: 114
-      Script: {instanceID: 3648}
+      Script: {instanceID: 3650}
     - Class: 114
-      Script: {instanceID: 3820}
+      Script: {instanceID: 3822}
     - Class: 114
-      Script: {instanceID: 3922}
+      Script: {instanceID: 3924}
     - Class: 114
-      Script: {instanceID: 4018}
+      Script: {instanceID: 4020}
     - Class: 114
-      Script: {instanceID: 4170}
+      Script: {instanceID: 4172}
     - Class: 114
-      Script: {instanceID: 4406}
+      Script: {instanceID: 4408}
     - Class: 114
-      Script: {instanceID: 4830}
+      Script: {instanceID: 4832}
     - Class: 114
-      Script: {instanceID: 4938}
+      Script: {instanceID: 4940}
     - Class: 114
-      Script: {instanceID: 4962}
+      Script: {instanceID: 4964}
     - Class: 114
-      Script: {instanceID: 5324}
+      Script: {instanceID: 5326}
     - Class: 114
-      Script: {instanceID: 5660}
+      Script: {instanceID: 5662}
     - Class: 114
-      Script: {instanceID: 5796}
+      Script: {instanceID: 5798}
     - Class: 114
-      Script: {instanceID: 5856}
+      Script: {instanceID: 5858}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -402,16 +414,22 @@ ScriptsOnlyBuild:
     className: VirtualMouseInput
   - hash:
       serializedVersion: 2
-      Hash: ea1569413d805748b7cef2dcb4622c85
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Shadow
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EquipMenu
   - hash:
       serializedVersion: 2
       Hash: 4aa2b4c0d8bb2df791937490d1a77406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyBehaviour
+  - hash:
+      serializedVersion: 2
+      Hash: ea1569413d805748b7cef2dcb4622c85
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Shadow
   - hash:
       serializedVersion: 2
       Hash: 7d638a8f052d2d676fa87fce04afe4d0
@@ -654,7 +672,7 @@ ScriptsOnlyBuild:
     className: DoorOpen
   - hash:
       serializedVersion: 2
-      Hash: 5feff375a840e89bcf4c0656670e7612
+      Hash: ed343c30ffc4281a76a4cf91a9bf6d06
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerAttack

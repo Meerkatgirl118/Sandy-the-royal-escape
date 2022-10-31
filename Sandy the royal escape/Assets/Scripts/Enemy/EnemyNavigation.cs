@@ -7,6 +7,7 @@ public class EnemyNavigation : MonoBehaviour
 {
     PlayerMovement playerMovement;
     OpenCloseMenu openCloseMenu;
+    Animator animator;
     NavMeshAgent agent;
 
     public float enemyAttackRadius = 6f;
@@ -17,6 +18,7 @@ public class EnemyNavigation : MonoBehaviour
         playerMovement = FindObjectOfType<PlayerMovement>();
         agent = GetComponent<NavMeshAgent>();
         openCloseMenu = FindObjectOfType<OpenCloseMenu>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -36,6 +38,7 @@ public class EnemyNavigation : MonoBehaviour
         {
             agent.enabled = false;
             touchingPlayer = true;
+            animator.SetBool("isMoving", false);
         }
     }
 
@@ -61,6 +64,7 @@ public class EnemyNavigation : MonoBehaviour
 
         if (distanceToPlayer < enemyAttackRadius && !touchingPlayer && !openCloseMenu.isMenuOpen && agent != null && agent.enabled == true)
         {
+            animator.SetBool("isMoving", true);
             agent.destination = playerMovement.transform.position;
         }
     }

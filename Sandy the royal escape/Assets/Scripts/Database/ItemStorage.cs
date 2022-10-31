@@ -22,6 +22,8 @@ public class ItemStorage : MonoBehaviour
 
     public string[] weapons;
     public int[] weaponStrength;
+
+    public List<string> weaponsAvailable = new List<string>();
     public int weaponInUse;
 
     void Start()
@@ -31,6 +33,7 @@ public class ItemStorage : MonoBehaviour
     }
     void AssignWeaponStrength()
     {
+        weaponsAvailable.Add("fist");
         weaponStrength[0] = fistStrengthBoost;
         weaponStrength[1] = knifeStrengthBoost;
         weaponStrength[2] = whipStrengthBoost;

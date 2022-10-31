@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     PlayerStats playerStats;
     EnemyStats enemyStats;
+    PlayerMovement playerMovement;
     OverworldUI overworldUI;
     OpenCloseMenu openCloseMenu;
     ItemStorage itemStorage;
@@ -24,12 +25,13 @@ public class PlayerAttack : MonoBehaviour
 
     bool isRotating = false;
 
-    float rotationTime;
+    public float rotationTime = 0.0f;
 
     void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
         enemyStats = FindObjectOfType<EnemyStats>();
+        playerMovement = FindObjectOfType<PlayerMovement>();
         overworldUI = FindObjectOfType<OverworldUI>();
         openCloseMenu = FindObjectOfType<OpenCloseMenu>();
         itemStorage = FindObjectOfType<ItemStorage>();
@@ -62,10 +64,10 @@ public class PlayerAttack : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy" && Input.GetAxis("Fire1") == 1 && !openCloseMenu.isMenuOpen)
+        if (collision.gameObject.tag == "Enemy" && Input.GetAxis("Fire1") == 1 && !openCloseMenu.isMenuOpen && playerMovement.movementEnabled)
         {
             CheckPlayerAttack();
-            PlayerFaceEnemy(collision.transform);
+            //PlayerFaceEnemy(collision.transform);
             animator.SetBool("isAttacking", true);
             overworldUI.EnemyHealthUI(collision.gameObject.GetComponent<EnemyBehaviour>().myHealth, collision.gameObject);
             if (!attackCooldownActive)
@@ -90,11 +92,12 @@ public class PlayerAttack : MonoBehaviour
     void PlayerFaceEnemy(Transform enemyPosition)
     {
         rotationTime += Time.deltaTime;
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationTime * speed);
-        
-        relativePosition = enemyPosition.position - transform.position;
+        //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationTime * speed * Time.deltaTime);
+
+        relativePosition.y = enemyPosition.position.y - transform.position.y;
         targetRotation = Quaternion.LookRotation(relativePosition);
 
+        //transform.rotation = Quaternion.AngleAxis(targetRotation.y, Vector3.up);
     }
 
     IEnumerator AttackCooldown()
