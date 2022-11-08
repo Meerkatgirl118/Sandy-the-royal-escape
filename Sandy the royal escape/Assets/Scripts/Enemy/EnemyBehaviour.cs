@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    // Define scripts
     PlayerStats playerStats;
     EnemyStats enemyStats;
     PlayerMovement playerMovement;
@@ -11,8 +12,10 @@ public class EnemyBehaviour : MonoBehaviour
     OpenCloseMenu openCloseMenu;
     Animator animator;
 
+    // Enemy type
     [SerializeField] string enemyTypeString = "";
 
+    // Stats, attack
     public int myHealth = 20000;
     public int myAttack = 40;
     public float myAttackCooldownAmount = 5f;
@@ -20,6 +23,10 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] bool myAttackCooldownActive = false;
 
     public bool enemyDefeatTriggered = false;
+
+    // Animations
+    [SerializeField] string attackAnimation;
+    [SerializeField] int animationUsed;
 
     void Start()
     {
@@ -46,12 +53,51 @@ public class EnemyBehaviour : MonoBehaviour
         switch (enemyTypeString)
         {
             case "cleaningRat":
+                // Define stats
                 myHealth = enemyStats.cleaningRatHealth; 
                 myAttack = enemyStats.cleaningRatAttack;
+                DefineEnemyAnimation();
                 break;
             case "cookingRat":
+                // Define stats
                 myHealth = enemyStats.cookingRatHealth; 
                 myAttack = enemyStats.cookingRatAttack;
+                DefineEnemyAnimation();
+                break;
+        }
+    }
+
+    void DefineEnemyAnimation()
+    {
+        switch (enemyTypeString)
+        {
+            case "cleaningRat":
+                attackAnimation = "broom";
+                animator.SetBool("isAttackingBroom", true);
+                animationUsed = Random.Range(0, 1);
+                switch (animationUsed)
+                {
+                    case 0:
+                        animator.SetBool("isAttackingBroom", true);
+                        break;
+                    case 1:
+                        animator.SetBool("isAttackingClipboard", true);
+                        break;
+                }
+                break;
+            case "cookingRat":
+                attackAnimation = "claw";
+                animator.SetBool("isAttackingClaw", true);
+                animationUsed = Random.Range(0, 1);
+                switch (animationUsed)
+                {
+                    case 0:
+                        animator.SetBool("isAttackingPan", true);
+                        break;
+                    case 1:
+                        animator.SetBool("isAttackingLadle", true);
+                        break;
+                }
                 break;
         }
     }
@@ -73,9 +119,16 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            animator.SetBool("isAttacking", false);
+        }
+    }
     void EnemyAttack(int myAttackStat)
     {
-        animator.SetTrigger("attack");
+        animator.SetBool("isAttacking", true);
         playerMovement.movementEnabled = false;
         playerStats.playerCurrentHealth -= myAttack;
         StartCoroutine(Wait());

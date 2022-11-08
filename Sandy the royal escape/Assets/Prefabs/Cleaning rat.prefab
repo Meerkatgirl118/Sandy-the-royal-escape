@@ -116,11 +116,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e35613dd8995c64591d7a1e2984e5e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTypeString: 
+  enemyTypeString: cleaningRat
   myHealth: 50
-  myAttack: 40
+  myAttack: 10
   myAttackCooldownAmount: 5
+  myDefeattime: 2
   myAttackCooldownActive: 0
+  enemyDefeatTriggered: 0
 --- !u!54 &6289439544171087841
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -45,18 +45,23 @@ public class PlayerAttack : MonoBehaviour
         {
             case 0:
                 weaponAttackBoost = itemStorage.fistStrengthBoost;
+                animator.SetBool("attack0", true);
                 break;
             case 1:
                 weaponAttackBoost = itemStorage.knifeStrengthBoost;
+                animator.SetBool("attack1", true);
+                break;
+            case 2:
+                weaponAttackBoost = itemStorage.whipStrengthBoost;
+                animator.SetBool("attack2", true);
                 break;
             case 3:
-                weaponAttackBoost = itemStorage.whipStrengthBoost;
+                weaponAttackBoost = itemStorage.swordStrengthBoost;
+                animator.SetBool("attack3", true);
                 break;
             case 4:
-                weaponAttackBoost = itemStorage.swordStrengthBoost;
-                break;
-            case 5:
                 weaponAttackBoost = itemStorage.axeStrengthBoost;
+                animator.SetBool("attack4", true);
                 break;
         }
         playerAttack = playerStats.playerAttack + weaponAttackBoost;
@@ -64,7 +69,7 @@ public class PlayerAttack : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy" && Input.GetAxis("Fire1") == 1 && !openCloseMenu.isMenuOpen && playerMovement.movementEnabled)
+        if (collision.gameObject.tag == "Enemy" && Input.GetAxis("Fire1") == 1 && !openCloseMenu.isMenuOpen && playerMovement.movementEnabled && !attackCooldownActive)
         {
             CheckPlayerAttack();
             //PlayerFaceEnemy(collision.transform);
@@ -89,6 +94,30 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+
+    void StopAttack()
+    {
+        switch (itemStorage.weaponInUse)
+        {
+            case 0:
+                animator.SetBool("attack0", false);
+                break;
+            case 1:
+                animator.SetBool("attack1", false);
+                break;
+            case 2:
+                animator.SetBool("attack2", false);
+                break;
+            case 3:
+                animator.SetBool("attack3", false);
+                break;
+            case 4:
+                animator.SetBool("attack4", false);
+                break;
+        }
+        playerAttack = playerStats.playerAttack + weaponAttackBoost;
+    }
+
     void PlayerFaceEnemy(Transform enemyPosition)
     {
         rotationTime += Time.deltaTime;
@@ -104,6 +133,7 @@ public class PlayerAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(attackCooldownTime);
         animator.SetBool("isAttacking", false);
+        StopAttack();
         attackCooldownActive = false;
     }
 }

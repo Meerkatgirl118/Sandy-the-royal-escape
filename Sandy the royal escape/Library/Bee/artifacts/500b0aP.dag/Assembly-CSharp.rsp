@@ -315,6 +315,7 @@
 "Assets/Scripts/Enemy/EnemyNavigation.cs"
 "Assets/Scripts/Items/GlassSlipperCollectable.cs"
 "Assets/Scripts/Items/HealingHeart.cs"
+"Assets/Scripts/Items/PickUpWeapon.cs"
 "Assets/Scripts/Items/Shop.cs"
 "Assets/Scripts/Player/PlayerAttack.cs"
 "Assets/Scripts/Player/PlayerGameover.cs"

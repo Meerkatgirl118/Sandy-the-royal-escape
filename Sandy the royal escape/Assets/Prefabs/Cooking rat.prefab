@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: enemyType
       value: cookingRat
       objectReference: {fileID: 0}
+    - target: {fileID: 6289439544171087840, guid: cbf16797dc53aee4ca22bc5cb7fa77c9, type: 3}
+      propertyPath: enemyTypeString
+      value: cookingRat
+      objectReference: {fileID: 0}
     - target: {fileID: 6289439544171087843, guid: cbf16797dc53aee4ca22bc5cb7fa77c9, type: 3}
       propertyPath: m_Name
       value: Cooking rat

@@ -114,7 +114,13 @@ public class EquipMenu : MonoBehaviour
         }
     }
 
-    void DisableAllWeaponImages()
+    public void EquipButton()
+    {
+        print(weaponChoiceSelected);
+        switchWeapon.weaponSelected = weaponChoiceSelected;
+    }
+
+        void DisableAllWeaponImages()
     {
         weapon0.SetActive(false);
         weapon1.SetActive(false);
