@@ -38,7 +38,6 @@ public class PlayerCutsceneStartLevel1 : MonoBehaviour
         startCutsceneUI.gameObject.SetActive(true);
         cutsceneUIAnim.SetTrigger("cutsceneFade");
         yield return new WaitForSeconds(cutsceneFadeLength);
-        //
         cutsceneCamera.SetActive(false);
         playerMovement.movementEnabled = true;
         mainCamera.SetActive(true);

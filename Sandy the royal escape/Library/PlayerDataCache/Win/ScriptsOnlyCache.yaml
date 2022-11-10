@@ -12,12 +12,15 @@ ScriptsOnlyBuild:
     - MainMenu
     - OpenCloseMenu
     - OverworldUI
+    - PickUpWeapon
     - PlayerAttack
+    - PlayerCutsceneStartLevel1
     - PlayerGameover
     - PlayerMovement
     - PlayerRotate
     - PlayerStats
     - Shop
+    - StartCutsceneUIRemove
     - SwitchWeapon
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
@@ -34,6 +37,7 @@ ScriptsOnlyBuild:
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
+    - UnityEngine.InputSystem.UI.InputSystemUIInputModule
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -45,10 +49,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -56,7 +58,6 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
-    - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
@@ -113,6 +114,24 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
   - assembly: Assembly-CSharp
+    fullTypeName: Shop
+    methodName: Buy
+  - assembly: Assembly-CSharp
+    fullTypeName: Shop
+    methodName: PreviousItem
+  - assembly: Assembly-CSharp
+    fullTypeName: Shop
+    methodName: NextItem
+  - assembly: Assembly-CSharp
+    fullTypeName: EquipMenu
+    methodName: EquipButton
+  - assembly: Assembly-CSharp
+    fullTypeName: EquipMenu
+    methodName: PreviousButton
+  - assembly: Assembly-CSharp
+    fullTypeName: EquipMenu
+    methodName: NextButton
+  - assembly: Assembly-CSharp
     fullTypeName: MainMenu
     methodName: Exit
   - assembly: Assembly-CSharp
@@ -122,23 +141,11 @@ ScriptsOnlyBuild:
     fullTypeName: MainMenu
     methodName: Equip
   - assembly: Assembly-CSharp
-    fullTypeName: Shop
-    methodName: Buy
+    fullTypeName: PlayerGameover
+    methodName: ExitGame
   - assembly: Assembly-CSharp
-    fullTypeName: Shop
-    methodName: PreviousItem
-  - assembly: Assembly-CSharp
-    fullTypeName: EquipMenu
-    methodName: NextButton
-  - assembly: Assembly-CSharp
-    fullTypeName: Shop
-    methodName: Buy
-  - assembly: Assembly-CSharp
-    fullTypeName: Shop
-    methodName: NextItem
-  - assembly: Assembly-CSharp
-    fullTypeName: EquipMenu
-    methodName: PreviousButton
+    fullTypeName: PlayerGameover
+    methodName: RestartScene
   sceneClasses:
     Assets/Scenes/Lvl 1.unity:
     - Class: 1
@@ -182,83 +189,89 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1540}
+      Script: {instanceID: 1542}
     - Class: 114
-      Script: {instanceID: 1566}
+      Script: {instanceID: 1568}
     - Class: 114
-      Script: {instanceID: 1824}
+      Script: {instanceID: 1800}
     - Class: 114
-      Script: {instanceID: 1880}
+      Script: {instanceID: 1828}
     - Class: 114
-      Script: {instanceID: 1906}
+      Script: {instanceID: 1884}
     - Class: 114
-      Script: {instanceID: 1956}
+      Script: {instanceID: 1910}
     - Class: 114
-      Script: {instanceID: 2164}
+      Script: {instanceID: 1960}
     - Class: 114
-      Script: {instanceID: 2240}
+      Script: {instanceID: 2168}
     - Class: 114
-      Script: {instanceID: 2340}
+      Script: {instanceID: 2244}
     - Class: 114
-      Script: {instanceID: 2578}
+      Script: {instanceID: 2344}
     - Class: 114
       Script: {instanceID: 2582}
     - Class: 114
-      Script: {instanceID: 2724}
+      Script: {instanceID: 2586}
     - Class: 114
-      Script: {instanceID: 2770}
+      Script: {instanceID: 2728}
     - Class: 114
-      Script: {instanceID: 2870}
+      Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2942}
+      Script: {instanceID: 2776}
     - Class: 114
-      Script: {instanceID: 3002}
+      Script: {instanceID: 2876}
     - Class: 114
-      Script: {instanceID: 3032}
+      Script: {instanceID: 2948}
     - Class: 114
-      Script: {instanceID: 3168}
+      Script: {instanceID: 3008}
     - Class: 114
-      Script: {instanceID: 3180}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3248}
+      Script: {instanceID: 3174}
     - Class: 114
-      Script: {instanceID: 3282}
+      Script: {instanceID: 3186}
     - Class: 114
-      Script: {instanceID: 3294}
+      Script: {instanceID: 3254}
     - Class: 114
-      Script: {instanceID: 3356}
+      Script: {instanceID: 3288}
     - Class: 114
-      Script: {instanceID: 3448}
+      Script: {instanceID: 3300}
     - Class: 114
-      Script: {instanceID: 3580}
+      Script: {instanceID: 3362}
     - Class: 114
-      Script: {instanceID: 3602}
+      Script: {instanceID: 3586}
     - Class: 114
-      Script: {instanceID: 3650}
+      Script: {instanceID: 3608}
     - Class: 114
-      Script: {instanceID: 3822}
+      Script: {instanceID: 3656}
     - Class: 114
-      Script: {instanceID: 3924}
+      Script: {instanceID: 3828}
     - Class: 114
-      Script: {instanceID: 4020}
+      Script: {instanceID: 3930}
     - Class: 114
-      Script: {instanceID: 4172}
+      Script: {instanceID: 4026}
     - Class: 114
-      Script: {instanceID: 4408}
+      Script: {instanceID: 4178}
     - Class: 114
-      Script: {instanceID: 4832}
+      Script: {instanceID: 4414}
     - Class: 114
-      Script: {instanceID: 4940}
+      Script: {instanceID: 4804}
     - Class: 114
-      Script: {instanceID: 4964}
+      Script: {instanceID: 4838}
     - Class: 114
-      Script: {instanceID: 5326}
+      Script: {instanceID: 4946}
     - Class: 114
-      Script: {instanceID: 5662}
+      Script: {instanceID: 4970}
     - Class: 114
-      Script: {instanceID: 5798}
+      Script: {instanceID: 5332}
     - Class: 114
-      Script: {instanceID: 5858}
+      Script: {instanceID: 5668}
+    - Class: 114
+      Script: {instanceID: 5788}
+    - Class: 114
+      Script: {instanceID: 5806}
+    - Class: 114
+      Script: {instanceID: 5866}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -276,6 +289,10 @@ ScriptsOnlyBuild:
     - Class: 195
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -306,7 +323,7 @@ ScriptsOnlyBuild:
     className: PanelRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
+      Hash: a8f2a28271b443ce85edc62dc6bd9691
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HealingHeart
@@ -378,6 +395,12 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: fbbcbf5ff8a03860abd4896a2e166162
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerCutsceneStartLevel1
+  - hash:
+      serializedVersion: 2
       Hash: 7e7ceb0a07394c1050791687127b503b
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -414,13 +437,13 @@ ScriptsOnlyBuild:
     className: VirtualMouseInput
   - hash:
       serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
+      Hash: cdd5fc9b64096a4763104bdc9ee4f368
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EquipMenu
   - hash:
       serializedVersion: 2
-      Hash: 4aa2b4c0d8bb2df791937490d1a77406
+      Hash: 85af62fdb3ed12e9423b693316ab7934
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyBehaviour
@@ -544,6 +567,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineBrain
+  - hash:
+      serializedVersion: 2
+      Hash: c314fb7beb67793db025cd7c5afb9061
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PickUpWeapon
   - hash:
       serializedVersion: 2
       Hash: 6a356b04c25c0bb008c1b24bf8b0f996
@@ -696,7 +725,7 @@ ScriptsOnlyBuild:
     className: CinemachineTrack
   - hash:
       serializedVersion: 2
-      Hash: 8a951a27619c56c72305bbc8f8131885
+      Hash: 87c7b7d2e627d45aaca9053c1edb1df4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ItemStorage
@@ -792,7 +821,7 @@ ScriptsOnlyBuild:
     className: PlayerInputEditor
   - hash:
       serializedVersion: 2
-      Hash: d4bca013853ad6b0f02846916c2c86a1
+      Hash: a6e84524f38dab22c3261f2bbd37a30c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerGameover
@@ -1260,6 +1289,12 @@ ScriptsOnlyBuild:
     className: ActivationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: a8d73bc44af3d72c9543b3694b7ef5a1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StartCutsceneUIRemove
+  - hash:
+      serializedVersion: 2
       Hash: b1705171cbdd1470c9b595afff9ef15e
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -1303,5 +1338,5 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/Lvl 1.unity
-  playerPath: F:/College Work/Sandy folder/Sandy the royal escape game/Sandy the
+  playerPath: F:/College Work/Sandy folder/Sandy the royal escape - Game/Sandy the
     royal escape.exe

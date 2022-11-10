@@ -87,6 +87,7 @@ public class OverworldUI : MonoBehaviour
                 break;
         }
     }
+
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(1f);

@@ -14,7 +14,8 @@ public class PlayerGameover : MonoBehaviour
     [SerializeField] GameObject gameOverRed;
 
     public bool gameoverTriggered = false;
-    int currentScene;
+    [SerializeField] int currentScene;
+    [SerializeField] GameObject attackUI;
 
     void Start()
     {
@@ -43,15 +44,14 @@ public class PlayerGameover : MonoBehaviour
 
     IEnumerator GameOver()
     {
+        playerStats.playerCurrentHealth = 0;
         gameoverTriggered = true;
         openCloseMenu.isMenuOpen = true;
         openCloseMenu.canOpenMenu = false;
 
+        attackUI.SetActive(false);
         FindObjectOfType<CinemachineFreeLook>().enabled = false;
         playerMovement.movementEnabled = false;
-
-        //playerMovement.gameObject.GetComponentInChildren<Animator>().enabled = false;
-
 
         playerMovement.gameObject.GetComponentInChildren<Animator>().SetBool("isWalking", false);
         playerMovement.gameObject.GetComponentInChildren<Animator>().SetBool("isRunning", false);
@@ -68,12 +68,13 @@ public class PlayerGameover : MonoBehaviour
     public void RestartScene()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentScene);
         Time.timeScale = 1f;
+        SceneManager.LoadScene(currentScene);
     }
 
     public void ExitGame()
     {
         Application.Quit();
+        print("Quit");
     }
 }

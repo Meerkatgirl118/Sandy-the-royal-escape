@@ -318,6 +318,7 @@
 "Assets/Scripts/Items/PickUpWeapon.cs"
 "Assets/Scripts/Items/Shop.cs"
 "Assets/Scripts/Player/PlayerAttack.cs"
+"Assets/Scripts/Player/PlayerCutsceneStartLevel1.cs"
 "Assets/Scripts/Player/PlayerGameover.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/Player/PlayerRotate.cs"
@@ -326,6 +327,7 @@
 "Assets/Scripts/UI/MainMenu.cs"
 "Assets/Scripts/UI/OpenCloseMenu.cs"
 "Assets/Scripts/UI/OverworldUI.cs"
+"Assets/Scripts/UI/StartCutsceneUIRemove.cs"
 "Assets/Scripts/World/DoorOpen.cs"
 -langversion:9.0
 

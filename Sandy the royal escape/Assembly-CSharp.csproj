@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Player\SwitchWeapon.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerRotate.cs" />
     <Compile Include="Assets\Scripts\UI\OverworldUI.cs" />
+    <Compile Include="Assets\Scripts\UI\StartCutsceneUIRemove.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyNavigation.cs" />
   </ItemGroup>
   <ItemGroup>
