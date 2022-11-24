@@ -5,12 +5,15 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     // Define scripts
-    PlayerStats playerStats;
-    EnemyStats enemyStats;
-    PlayerMovement playerMovement;
-    OverworldUI overworldUI;
-    OpenCloseMenu openCloseMenu;
-    Animator animator;
+    [SerializeField] PlayerStats playerStats;
+    [SerializeField] EnemyStats enemyStats;
+    [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] OverworldUI overworldUI;
+    [SerializeField] OpenCloseMenu openCloseMenu;
+    [SerializeField] Animator animator;
+    [SerializeField] PlayerBlock playerBlock;
+    [SerializeField] Animator playerAnimator;
+    [SerializeField] BlindMiceBoss blindMiceBoss;
 
     // Enemy type
     [SerializeField] string enemyTypeString = "";
@@ -39,7 +42,7 @@ public class EnemyBehaviour : MonoBehaviour
         EnemyDefeatTrigger();
     }
 
-    void FindNeededScripts()
+    public void FindNeededScripts()
     {
         playerStats = FindObjectOfType<PlayerStats>();
         enemyStats = FindObjectOfType<EnemyStats>();
@@ -47,6 +50,9 @@ public class EnemyBehaviour : MonoBehaviour
         overworldUI = FindObjectOfType<OverworldUI>();
         openCloseMenu = FindObjectOfType<OpenCloseMenu>();
         animator = GetComponentInChildren<Animator>();
+        playerBlock = FindObjectOfType<PlayerBlock>();
+        playerAnimator = FindObjectOfType<PlayerMovement>().GetComponentInChildren<Animator>();
+        blindMiceBoss = FindObjectOfType<BlindMiceBoss>();
     }
     void DefineEnemyStats()
     {
@@ -103,18 +109,18 @@ public class EnemyBehaviour : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" && !myAttackCooldownActive && !openCloseMenu.isMenuOpen && !enemyDefeatTriggered)
+        if (collision.gameObject.tag == "Player" && !myAttackCooldownActive && !openCloseMenu.isMenuOpen && !enemyDefeatTriggered && !playerBlock.playerIsBlocking)
         {
-            StartCoroutine(AttackCooldown());
+            StartCoroutine(AttackCooldown(myAttackCooldownAmount));
             EnemyAttack(myAttack);
         }
     }
 
     void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" && !myAttackCooldownActive && !openCloseMenu.isMenuOpen && !enemyDefeatTriggered)
+        if (collision.gameObject.tag == "Player" && !myAttackCooldownActive && !openCloseMenu.isMenuOpen && !enemyDefeatTriggered && !playerBlock.playerIsBlocking)
         {
-            StartCoroutine(AttackCooldown());
+            StartCoroutine(AttackCooldown(myAttackCooldownAmount));
             EnemyAttack(myAttack);
         }
     }
@@ -129,9 +135,11 @@ public class EnemyBehaviour : MonoBehaviour
     void EnemyAttack(int myAttackStat)
     {
         animator.SetBool("isAttacking", true);
+        playerAnimator.SetBool("isAttacking", false);
         playerMovement.movementEnabled = false;
         playerStats.playerCurrentHealth -= myAttack;
         StartCoroutine(Wait());
+        playerAnimator.SetTrigger("takeDamage");
         playerMovement.movementEnabled = true;
     }
 
@@ -156,10 +164,11 @@ public class EnemyBehaviour : MonoBehaviour
         yield return new WaitForSeconds(1f);
     }
 
-    IEnumerator AttackCooldown()
+    public IEnumerator AttackCooldown(float cooldownLength)
     {
+        animator.SetBool("isAttacking", false);
         myAttackCooldownActive = true;
-        yield return new WaitForSeconds(myAttackCooldownAmount);
+        yield return new WaitForSeconds(cooldownLength);
         myAttackCooldownActive = false;
     }
 
@@ -168,6 +177,10 @@ public class EnemyBehaviour : MonoBehaviour
         GetComponent<EnemyNavigation>().enabled = false;
         myAttackCooldownActive = true;
         yield return new WaitForSeconds(myDefeattime);
+        if (blindMiceBoss.ratAttackSectionTriggered)
+        {
+            blindMiceBoss.enemiesDefeated++;
+        }
         Destroy(this.gameObject);
     }
 }

@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lvl 1.unity
     guid: 09744efe277bb2643875d0c613c9024a
+  - enabled: 1
+    path: Assets/Scenes/3 blind mice fight.unity
+    guid: e55892076c17dbc43abad7e983c3896e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 20f3aeb352ec7cb4c94b3734a4ed5b5b, type: 2}

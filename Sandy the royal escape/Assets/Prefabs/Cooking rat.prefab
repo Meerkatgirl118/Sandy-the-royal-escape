@@ -8,9 +8,25 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 567953954347451752, guid: cbf16797dc53aee4ca22bc5cb7fa77c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946069355309708255, guid: cbf16797dc53aee4ca22bc5cb7fa77c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464681644465355852, guid: cbf16797dc53aee4ca22bc5cb7fa77c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650185840065277535, guid: cbf16797dc53aee4ca22bc5cb7fa77c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6289439544171087771, guid: cbf16797dc53aee4ca22bc5cb7fa77c9, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6289439544171087771, guid: cbf16797dc53aee4ca22bc5cb7fa77c9, type: 3}
       propertyPath: m_LocalPosition.x

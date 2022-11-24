@@ -11,6 +11,7 @@ public class PlayerCutsceneStartLevel1 : MonoBehaviour
     [SerializeField] GameObject cutsceneCamera;
 
     [SerializeField] Canvas startCutsceneUI;
+    [SerializeField] GameObject overworldUI;
     Animator cutsceneUIAnim;
 
     [SerializeField] float startCutsceneLength = 10f;
@@ -21,6 +22,7 @@ public class PlayerCutsceneStartLevel1 : MonoBehaviour
         playerMovement = FindObjectOfType<PlayerMovement>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         cutsceneUIAnim = startCutsceneUI.gameObject.GetComponent<Animator>();
+        overworldUI.SetActive(false);
 
         cutsceneCamera.SetActive(true);
         playerMovement.movementEnabled = false;
@@ -41,6 +43,7 @@ public class PlayerCutsceneStartLevel1 : MonoBehaviour
         cutsceneCamera.SetActive(false);
         playerMovement.movementEnabled = true;
         mainCamera.SetActive(true);
+        overworldUI.SetActive(true);
         Destroy(gameObject);
     }
 }

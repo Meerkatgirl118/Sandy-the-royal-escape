@@ -120,6 +120,7 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_INPUT_SYSTEM
 -define:ENABLE_LEGACY_INPUT_MANAGER
+-define:UNITY_POST_PROCESSING_STACK_V2
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"C:/Program Files/Unity/Hub/Editor/2022.1.17f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
@@ -331,6 +332,8 @@
 -r:"Library/Bee/artifacts/500b0aE.dag/com.unity.cinemachine.editor.ref.dll"
 -r:"Library/Bee/artifacts/500b0aE.dag/Unity.InputSystem.ref.dll"
 -r:"Library/Bee/artifacts/500b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/500b0aE.dag/Unity.Postprocessing.Editor.ref.dll"
+-r:"Library/Bee/artifacts/500b0aE.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/500b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/500b0aE.dag/Unity.Services.Core.Analytics.ref.dll"
 -r:"Library/Bee/artifacts/500b0aE.dag/Unity.Services.Core.Environments.ref.dll"
@@ -346,6 +349,7 @@
 "Assets/Scripts/Database/EnemyStats.cs"
 "Assets/Scripts/Database/ItemStorage.cs"
 "Assets/Scripts/Database/PlayerStats.cs"
+"Assets/Scripts/Enemy/BlindMiceBoss.cs"
 "Assets/Scripts/Enemy/EnemyBehaviour.cs"
 "Assets/Scripts/Enemy/EnemyNavigation.cs"
 "Assets/Scripts/Items/GlassSlipperCollectable.cs"
@@ -353,16 +357,19 @@
 "Assets/Scripts/Items/PickUpWeapon.cs"
 "Assets/Scripts/Items/Shop.cs"
 "Assets/Scripts/Player/PlayerAttack.cs"
+"Assets/Scripts/Player/PlayerBlock.cs"
 "Assets/Scripts/Player/PlayerCutsceneStartLevel1.cs"
 "Assets/Scripts/Player/PlayerGameover.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/Player/PlayerRotate.cs"
 "Assets/Scripts/Player/SwitchWeapon.cs"
+"Assets/Scripts/Player/ToNextLevel.cs"
 "Assets/Scripts/UI/EquipMenu.cs"
 "Assets/Scripts/UI/MainMenu.cs"
 "Assets/Scripts/UI/OpenCloseMenu.cs"
 "Assets/Scripts/UI/OverworldUI.cs"
 "Assets/Scripts/UI/StartCutsceneUIRemove.cs"
+"Assets/Scripts/UI/TitleScreen.cs"
 "Assets/Scripts/World/DoorOpen.cs"
 -langversion:9.0
 

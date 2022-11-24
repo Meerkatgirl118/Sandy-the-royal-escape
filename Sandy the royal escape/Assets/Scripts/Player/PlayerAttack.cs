@@ -72,8 +72,10 @@ public class PlayerAttack : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && Input.GetAxis("Fire1") == 1 && !openCloseMenu.isMenuOpen && playerMovement.movementEnabled && !attackCooldownActive)
         {
             CheckPlayerAttack();
-            //PlayerFaceEnemy(collision.transform);
+            PlayerFaceEnemy(collision.transform);
+            
             animator.SetBool("isAttacking", true);
+            playerMovement.movementEnabled = false;
             overworldUI.EnemyHealthUI(collision.gameObject.GetComponent<EnemyBehaviour>().myHealth, collision.gameObject);
             if (!attackCooldownActive)
             {
@@ -83,6 +85,7 @@ public class PlayerAttack : MonoBehaviour
             attackCooldownActive = true;
             overworldUI.EnemyHealthUI(collision.gameObject.GetComponent<EnemyBehaviour>().myHealth, collision.gameObject);
 
+            playerMovement.movementEnabled = true;
             StartCoroutine(AttackCooldown());
         }
     }
@@ -116,17 +119,12 @@ public class PlayerAttack : MonoBehaviour
                 break;
         }
         playerAttack = playerStats.playerAttack + weaponAttackBoost;
-    }
+    } 
 
     void PlayerFaceEnemy(Transform enemyPosition)
     {
-        rotationTime += Time.deltaTime;
-        //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationTime * speed * Time.deltaTime);
-
-        relativePosition.y = enemyPosition.position.y - transform.position.y;
-        targetRotation = Quaternion.LookRotation(relativePosition);
-
-        //transform.rotation = Quaternion.AngleAxis(targetRotation.y, Vector3.up);
+        transform.LookAt(enemyPosition);
+        transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z);
     }
 
     IEnumerator AttackCooldown()

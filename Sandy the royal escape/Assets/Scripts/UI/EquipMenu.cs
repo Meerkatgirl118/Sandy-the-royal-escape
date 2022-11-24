@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class EquipMenu : MonoBehaviour
 {
     ItemStorage itemStorage;
     SwitchWeapon switchWeapon;
+    [SerializeField] CinemachineFreeLook virtualCamera;
 
     [SerializeField] GameObject weapon0;
     [SerializeField] GameObject weapon1;
@@ -23,7 +25,9 @@ public class EquipMenu : MonoBehaviour
     {
         itemStorage = FindObjectOfType<ItemStorage>();
         switchWeapon = FindObjectOfType<SwitchWeapon>();
+        virtualCamera = FindObjectOfType<CinemachineFreeLook>();
         SetWeaponList();
+        virtualCamera.enabled = false;
     }
 
     void Update()
@@ -93,9 +97,6 @@ public class EquipMenu : MonoBehaviour
 
     public void CheckWeaponAvailablity(bool weaponOwned, GameObject weaponImage)
     {
-        //for (int i = 0; i < weaponsSelectable.Count; i++) { weaponsSelectable.RemoveAt(i); }
-        //for (int i = 0; i < weaponsSelectable.Count + 1; i++) { if (itemStorage.weaponsAvailable.Contains(itemStorage.weapons[i]))
-        //    { weaponsSelectable.Add(true); } else { weaponsSelectable.Add(false); } }
         if (!weaponOwned)
         {
             switch (directionPressed)

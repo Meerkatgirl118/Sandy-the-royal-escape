@@ -37,8 +37,9 @@ Transform:
   m_Children:
   - {fileID: 5983316875736253260}
   - {fileID: 6645451853124388511}
+  - {fileID: 3485866730546136589}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6289439544171087844
 MeshFilter:
@@ -116,6 +117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e35613dd8995c64591d7a1e2984e5e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
+  enemyStats: {fileID: 0}
+  playerMovement: {fileID: 0}
+  overworldUI: {fileID: 0}
+  openCloseMenu: {fileID: 0}
+  animator: {fileID: 0}
+  playerBlock: {fileID: 0}
+  playerAnimator: {fileID: 0}
   enemyTypeString: cleaningRat
   myHealth: 50
   myAttack: 10
@@ -123,6 +132,8 @@ MonoBehaviour:
   myDefeattime: 2
   myAttackCooldownActive: 0
   enemyDefeatTriggered: 0
+  attackAnimation: 
+  animationUsed: 0
 --- !u!54 &6289439544171087841
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -174,6 +185,151 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!1001 &4029296905286803942
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 6289439544171087771}
+    m_Modifications:
+    - target: {fileID: -8980375735872788847, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3376bb05e4aef2d46a4ace59a6d9e500, type: 2}
+    - target: {fileID: -8980375735872788847, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3376bb05e4aef2d46a4ace59a6d9e500, type: 2}
+    - target: {fileID: -8980375735872788847, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3376bb05e4aef2d46a4ace59a6d9e500, type: 2}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.33487356
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.33487356
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.33487356
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.032
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8493986383782535766, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4706452340541456491, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -35196217813894195, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_Name
+      value: Royal Rat All weapons
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236720251461784121, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6017510239773530926, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6264463594974219301, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a132e1aaed957c4492f997e2afb2f68, type: 2}
+    - target: {fileID: 6264463594974219301, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4a132e1aaed957c4492f997e2afb2f68, type: 2}
+    - target: {fileID: 6934356464381969469, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+--- !u!4 &3485866730546136589 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+  m_PrefabInstance: {fileID: 4029296905286803942}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4263670788608908471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a358edc3311f87446a2b8f30f499fff3, type: 3}
+  m_PrefabInstance: {fileID: 4029296905286803942}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1946720633322520765
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263670788608908471}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 86dbc83f4e3065b45a4d7fdab6b1989e, type: 3}
+  m_Controller: {fileID: 9100000, guid: cbb5b80a296728c4ea0d6f4df6c8a9c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6607865034545406324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -241,6 +397,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 86dbc83f4e3065b45a4d7fdab6b1989e, type: 3}
       propertyPath: m_Name
       value: Royal Rat Attack (Scratch)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 86dbc83f4e3065b45a4d7fdab6b1989e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
